@@ -1,4 +1,4 @@
-OBJECTS_COUNT = 50
+OBJECTS_COUNT = 500
 
 User = Struct.new(:id, :login, :password, :age)
 class User
