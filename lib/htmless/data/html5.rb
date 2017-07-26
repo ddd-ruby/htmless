@@ -188,10 +188,5 @@ module Htmless
                     Attribute.new(attr.to_sym, attribute_type[name, attr])
                   end)
         end)
-
-    #require 'pp'
-    #pp HTML5
-    #pp HTML5.abstract_attributes
-    #pp HTML5.simple_tags
   end
 end

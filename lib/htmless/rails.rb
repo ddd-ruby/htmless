@@ -49,10 +49,4 @@ module Htmless::Rails
             go_in { render obj, "#{options[:method] || options[:template]}" }.to_html!,
         :layout => true)
   end
-
-
 end
-
-
-
-

@@ -23,7 +23,7 @@ module Htmless
   #   pool = Pool.new Formatted
   #   pool.get.go_in do
   #     # some rendering
-  #   end.to_xhtml! # => output and releases the builder to pool
+  #   end.to_html! # => output and releases the builder to pool
   class Pool
 
     module Helper
@@ -45,6 +45,10 @@ module Htmless
       @klass = klass
       @pool  = []
       klass.send :include, Helper
+    end
+
+    def inspect
+      %Q{<Htmless::Pool klass={@klass} #{self.__id__}>}
     end
 
     # This the preferred way of getting new Builder. If you forget to release it, it does not matter -

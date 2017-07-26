@@ -17,7 +17,6 @@
 # USA
 
 require 'cgi'
-#require 'active_support/core_ext/string/inflections'
 
 require 'htmless/dynamic_classes'
 require 'htmless/strings_injector'
@@ -101,7 +100,7 @@ module Htmless
 
 
     # creates a new builder
-    # This is quite expensive, HammerBuilder::Pool should be used
+    # This is quite expensive, Htmless::Pool should be used
     def initialize()
       @_output  = ""
       @_stack   = []
@@ -113,6 +112,10 @@ module Htmless
       tags.each do |klass|
         instance_variable_set(:"@_#{klass}", self.class.dynamic_classes[camelize_string(klass).to_sym].new(self))
       end
+    end
+
+    def inspect
+      %Q{<Htmless::Abstract >}
     end
 
     # escapes +text+ to output
@@ -154,22 +157,9 @@ module Htmless
       self
     end
 
-    #def capture
-    #  flush
-    #  _output = @_output.clone
-    #  _stack  = @_stack.clone
-    #  @_output.clear
-    #  @_stack.clear
-    #  yield
-    #  to_html
-    #ensure
-    #  @_output.replace _output
-    #  @_stack.replace _stack
-    #end
-
     # enables you to evaluate +block+ inside the builder with +variables+
     # @example
-    #  HammerBuilder::Formatted.new.go_in('asd') do |string|
+    #  Htmless::Formatted.new.go_in('asd') do |string|
     #    div string
     #  end.to_html #=> "<div>asd</div>"
     #

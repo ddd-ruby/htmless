@@ -25,14 +25,14 @@ module Htmless
     # @example
     #   class User
     #   # ...
-    #     include HammerBuilder::Helper
+    #     include Htmless::Helper
     #
     #     builder :menu do |user|
     #       li user.name
     #     end
     #   end
     #
-    #   User.new.menu(HammerBuilder::Standard.get).to_html! #=> "<li>Name</li>"
+    #   User.new.menu(Htmless::Standard.get).to_html! #=> "<li>Name</li>"
     def builder(method_name, &builder_block)
       define_method(method_name) do |builder, *args|
         builder.dive(self, *args, &builder_block)

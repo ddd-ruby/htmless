@@ -15,7 +15,7 @@ Htmless::Formatted.new.go_in do
     head { title 'my_page' }
     body do
       div id: :content do
-        p.centered "my page's content"
+        p "my page's content"
       end
     end
   end
@@ -340,7 +340,7 @@ If they are needed they can be mixed directly into Builder's instance
 Or new builder descendant can be made.
 
     !!!ruby
-    class MyBuilder < Hammer::FormattedBuilder
+    class MyBuilder < Htmless::FormattedBuilder
       include ActionView::Helpers::NumberHelper
     end
 

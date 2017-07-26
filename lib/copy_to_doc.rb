@@ -48,7 +48,7 @@ File.open "#{root}/htmless/doc.rb", 'w' do |out|
   end
 
   #out << "    class AbstractTag\n"   ff
-  #HammerBuilder::GLOBAL_ATTRIBUTES.each do |attr|
+  #Htmless::GLOBAL_ATTRIBUTES.each do |attr|
   #  out << "    \#@method #{attr}(value)\n"
   #  out << "    attribute :#{attr}\n"
   #end
