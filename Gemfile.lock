@@ -54,6 +54,10 @@ GEM
       ffi
     tagz (9.9.2)
     tenjin (0.7.1)
+    tilt (2.0.8)
+    tiny (0.2.7)
+      erubis
+      tilt
     treetop (1.6.2)
       polyglot (~> 0.3)
     yard (0.8.7.6)
@@ -77,4 +81,8 @@ DEPENDENCIES
   simplecov-rcov
   tagz
   tenjin
+  tiny
   yard
+
+BUNDLED WITH
+   1.14.6

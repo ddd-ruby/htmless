@@ -26,17 +26,18 @@ class ::Class
 end
 
 #TIMES    = 50000
-TIMES    = 25000
+# TIMES    = 25000
 #TIMES    = 10000
 #TIMES    = 2500
-#TIMES    = 1000
-#TIMES    = 500
+TIMES    = 1000
+# TIMES    = 500
 #TIMES    = 100
 #TIMES    = 1
 BERECTOR = true
 BTENJIN  = true
-BMARKABY = true
+BMARKABY = false
 BTAGZ    = true
+BTINY    = true
 
 
 class AModel
@@ -197,7 +198,6 @@ TMP
         puts w.to_html if TIMES == 1
       end
     end
-
   end
   if BMARKABY
     require 'builder'
@@ -267,6 +267,41 @@ TMP
       end
     end
   end
+
+  if BTINY
+        require 'tiny'
+        class ATWidget <  Tiny::Widget
+          def initialize(model)
+            @model = model
+          end
+          def markup
+            html do
+              head { }
+              body do
+                div :id => 'menu' do
+                  ul do
+                    10.times do
+                      li @model.a
+                      li @model.b
+                    end
+                  end
+                end
+                div :id => 'content' do
+                  10.times { text 'asd asha sdha sdjhas ahs'*10 }
+                end
+              end
+            end
+          end
+        end
+    
+        w = ATWidget.new(model)
+        b.report('tiny') do
+          TIMES.times do
+            w.to_html
+            puts w.to_html if TIMES == 1
+          end
+        end
+      end
 end
 
 
