@@ -5,6 +5,8 @@ require 'benchmark'
 #require "#{File.dirname(__FILE__)}/render_3.rb"
 #require "#{File.dirname(__FILE__)}/render_4.rb"
 
+require 'bundler/setup'
+Bundler.setup
 require 'htmless'
 
 class ::Class
@@ -63,7 +65,7 @@ Benchmark.bmbm(23) do |b|
                 end
               end
             end
-            div.content! do
+            div(id: :content) do
               10.times { text 'asd asha sdha sdjhas ahs'*10 }
             end
           end
@@ -90,7 +92,7 @@ Benchmark.bmbm(23) do |b|
                 end
               end
             end
-            div.content! do
+            div(id: :content) do
               10.times { text 'asd asha sdha sdjhas ahs'*10 }
             end
           end
